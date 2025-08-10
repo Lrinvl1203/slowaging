@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>실버리드 - 1분 읽기</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header" role="banner">
+      <h1>실버리드</h1>
+      <p class="subtitle">가장 쉬운 1분 읽기로 인지 건강 지키기</p>
+    </header>
+
+    <main id="app" class="container" role="main">
+      <!-- Step 1: 카테고리 선택 -->
+      <section id="step-1" class="step active" aria-labelledby="step1-title">
+        <h2 id="step1-title">1단계 · 카테고리 선택</h2>
+        <div class="category-grid" role="group" aria-label="카테고리">
+          <button class="btn category" data-category="health">건강</button>
+          <button class="btn category" data-category="life">생활/문화</button>
+          <button class="btn category" data-category="economy">경제</button>
+          <button class="btn category" data-category="society">사회</button>
+          <button class="btn category" data-category="sports">스포츠</button>
+        </div>
+        <div class="hint">선택하면 1분 분량의 글이 준비됩니다.</div>
+        <div class="actions">
+          <button id="go-step-2" class="btn primary" disabled>다음으로</button>
+        </div>
+      </section>
+
+      <!-- Step 2: 읽기/듣기 -->
+      <section id="step-2" class="step" aria-labelledby="step2-title" aria-live="polite">
+        <h2 id="step2-title">2단계 · 듣고 따라 읽기</h2>
+
+        <div class="controls">
+          <label>
+            글자 크기
+            <input id="font-size" type="range" min="20" max="32" step="1" value="24" />
+          </label>
+          <label>
+            줄 간격
+            <input id="line-height" type="range" min="16" max="28" step="1" value="22" />
+          </label>
+          <label>
+            속도
+            <select id="tts-rate">
+              <option value="0.75">0.75x</option>
+              <option value="1" selected>1.0x</option>
+              <option value="1.25">1.25x</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="tts-controls" role="group" aria-label="듣기 제어">
+          <button id="btn-listen" class="btn primary">듣기</button>
+          <button id="btn-pause" class="btn">일시정지</button>
+          <button id="btn-stop" class="btn">정지</button>
+        </div>
+
+        <div class="asr-controls" role="group" aria-label="따라 읽기 제어">
+          <button id="btn-mic-start" class="btn">마이크로 따라 읽기</button>
+          <button id="btn-mic-stop" class="btn">마이크 중지</button>
+        </div>
+
+        <div class="reading-panel">
+          <div id="reading-text" class="reading-text" tabindex="0" aria-label="읽기 텍스트 영역"></div>
+          <aside class="sidebar">
+            <div class="timer" aria-live="polite">
+              <div>읽은 시간</div>
+              <div id="elapsed">00:00</div>
+              <small class="recommend">하루 1분 이상 읽기를 권장합니다.</small>
+            </div>
+          </aside>
+        </div>
+
+        <div class="actions">
+          <button id="go-step-3" class="btn primary">퀴즈 풀기</button>
+        </div>
+      </section>
+
+      <!-- Step 3: 퀴즈 -->
+      <section id="step-3" class="step" aria-labelledby="step3-title">
+        <h2 id="step3-title">3단계 · 이해도 퀴즈</h2>
+        <div id="quiz-area" class="quiz-area" aria-live="polite"></div>
+        <div class="actions">
+          <button id="submit-quiz" class="btn primary">채점하기</button>
+        </div>
+      </section>
+
+      <!-- Step 4: 결과/공유 -->
+      <section id="step-4" class="step" aria-labelledby="step4-title">
+        <h2 id="step4-title">4단계 · 결과</h2>
+        <div id="result" class="result" aria-live="polite"></div>
+        <div class="share">
+          <button id="btn-share" class="btn">공유하기</button>
+          <button id="btn-copy" class="btn">링크/결과 복사</button>
+        </div>
+        <div class="actions">
+          <button id="restart" class="btn">다시 하기</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer" role="contentinfo">
+      <small>© 2025 Silver Read</small>
+    </footer>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+  </html>
+
+

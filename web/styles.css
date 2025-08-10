@@ -1,0 +1,64 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #666666;
+  --primary: #2e7d32; /* 접근성 고려한 딥그린 */
+  --surface: #f5f7f8;
+  --accent: #ffcc00;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, sans-serif; }
+
+.app-header, .app-footer { text-align: center; padding: 16px 12px; }
+.app-header h1 { margin: 0 0 4px; font-size: 28px; }
+.subtitle { margin: 0; color: var(--muted); }
+
+.container { max-width: 920px; margin: 0 auto; padding: 12px; }
+
+.step { display: none; margin: 12px 0 24px; background: var(--surface); border-radius: 12px; padding: 16px; }
+.step.active { display: block; }
+.step h2 { margin-top: 0; font-size: 22px; }
+
+.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 12px 0; }
+.btn { height: 60px; font-size: 18px; border-radius: 12px; border: 2px solid #ccc; background: #fff; cursor: pointer; }
+.btn:hover, .btn:focus { outline: 3px solid #004aad33; }
+.btn.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+.btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+.hint { color: var(--muted); margin-top: 8px; }
+.actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 12px; }
+
+.controls { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.controls label { display: flex; align-items: center; gap: 8px; font-size: 16px; }
+
+.tts-controls { display: flex; gap: 8px; margin: 12px 0; }
+.asr-controls { display: flex; gap: 8px; margin: 8px 0 12px; }
+
+.reading-panel { display: grid; grid-template-columns: 1fr 220px; gap: 12px; align-items: start; }
+.reading-text { background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #e1e5e9; min-height: 220px; line-height: 1.8; font-size: 24px; white-space: pre-wrap; }
+.reading-text .sentence { transition: background-color 200ms; display: block; margin-bottom: 6px; }
+.reading-text .sentence.active { background: #fff9c4; /* 노란 하이라이트 */ }
+.reading-text .recognized { color: #1565c0; display: block; margin-top: 4px; font-size: 0.95em; }
+.reading-text .match-good { color: #2e7d32; }
+.reading-text .match-mid { color: #ef6c00; }
+.reading-text .match-bad { color: #c62828; }
+
+.sidebar { background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #e1e5e9; }
+.timer { text-align: center; font-size: 18px; }
+.timer #elapsed { font-size: 28px; font-weight: 700; margin: 6px 0; }
+.recommend { color: var(--muted); }
+
+.quiz-area { display: grid; gap: 12px; }
+.quiz-card { background: #fff; border: 1px solid #e1e5e9; border-radius: 12px; padding: 12px; }
+.quiz-card h3 { margin: 0 0 8px; font-size: 18px; }
+.quiz-options { display: grid; gap: 8px; }
+
+.result { background: #fff; border: 1px solid #e1e5e9; border-radius: 12px; padding: 16px; font-size: 18px; }
+.share { display: flex; gap: 8px; margin-top: 12px; }
+
+@media (max-width: 720px) {
+  .reading-panel { grid-template-columns: 1fr; }
+}
+
+
